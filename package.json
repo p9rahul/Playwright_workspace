@@ -1,0 +1,21 @@
+{
+  "name": "playwright_workspace",
+  "version": "1.0.0",
+  "description": "Basics and AI capability",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p9rahul/Playwright_workspace.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/p9rahul/Playwright_workspace/issues"
+  },
+  "homepage": "https://github.com/p9rahul/Playwright_workspace#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.6"
+  }
+}
