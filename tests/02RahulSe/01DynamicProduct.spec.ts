@@ -1,7 +1,7 @@
 import { Browser, expect, test } from "@playwright/test";
 import { chromium } from "playwright";
 
-test("Child Page Test", async () => {
+test("End to End automation", async () => {
     const browser: Browser = await chromium.launch({ headless: false });
     const page = await browser.newPage();
 
@@ -80,18 +80,56 @@ test("Child Page Test", async () => {
             break;
         }
     }
-
+    //  Place order button
+    await page.waitForTimeout(2000);
+    await page.getByText("Place Order ").click();
 
     //#Validate Eamil
     const checkoutEmail = await page.locator("css=.user__name [type='text']").first().textContent();
     expect(checkoutEmail).toBe(email);
     console.log("Checkout Email:", checkoutEmail);
 
+    // #Fetch Order ID
+    const thankyouMsg = await page.locator(".hero-primary").textContent();
+    expect(thankyouMsg).toContain("Thankyou for the order.");
+    const orderID = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
+    console.log("Order ID:", orderID);
+    // await page.pause();
+
+
+    //Move to order History page and verify order is present in order history
+    await page.locator("button[routerlink*='myorders']").click();
+    await page.locator("css=tr").first().waitFor();
+    const orderHistoryCount = await page.locator("css=tr").count();
+    console.log("Order History Count:", orderHistoryCount);
+    // await page.pause();
+
+
+    for (let i = 0; i < orderHistoryCount; ++i) {
+        //tr:nth-child(1) th
+        //tr:nth-child(2) button [but here 2 button so write first()]
+        //   //tr[2]/td//button[text()='Delete']
+        //await page.locator('tr').nth(0).locator('button', { hasText: 'Delete' }).click();
+        const orderHistoryID = await page.locator("css=tr").nth(i).locator("th").first().textContent();
+        const orderHistoryID1 = orderHistoryID?.replaceAll("|", "",);
+        console.log(orderHistoryID1);
+        console.log("newOrderID", orderHistoryID1);
+
+        const orderID1 = orderID?.replaceAll("|", "",);
+
+        if (orderHistoryID1?.trim() === orderID1?.trim()) {
+            await page.locator("css=tr").nth(i).locator("button").first().click();
+            console.log("Order Exist in order History.");
+            break;
+        }
+    }
+    // await page.pause();
+
+
     //Signout --> //Check login page content after sign out
     // await page.waitForTimeout(5000);
     // await page.getByText(" Sign Out ").click();
     // const loginPageTitle = await page.getByText("Practice Website for").textContent();
     // expect(loginPageTitle).toContain("Practice Website for Rahul Shetty Academy Students");
-
     await browser.close();
 });
