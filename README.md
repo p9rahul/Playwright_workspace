@@ -12,6 +12,8 @@ Notes - all browsers will place here
 
 #Run
 
+- Run test1 file - $ node .\test1.ts
+
 - Run Through test Runner cmd , Test runner window will open
   $npx playwright test --ui
 
