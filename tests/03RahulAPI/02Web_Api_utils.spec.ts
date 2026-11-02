@@ -5,10 +5,9 @@ import { ApiUtils } from "../02RahulSe/Utils/ApiUtils";
 
 const loginPayload = { userEmail: "p9rahul@zohomail.in", userPassword: "Rahul@123" };
 const createOrderpayload = { orders: [{ country: "India", productOrderedId: "6960eae1c941646b7a8b3ed3" }] };
-// let token: any;
-// let orderID: any;
-
 let response: any;
+
+
 test.beforeAll(async () => {
 
     //************Call Login API & Create Order API ************
@@ -47,5 +46,3 @@ test("Validate login with API", async ({ page }) => {
     expect(response.orderID === orderIdDetails).toBeTruthy();
 
 });
-
-

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Basics and AI capability",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test tests/03RahulAPI/02Web_Api_utils.spec.ts --headed"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/p9rahul/Playwright_workspace.git"
