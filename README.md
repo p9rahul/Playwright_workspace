@@ -60,6 +60,8 @@ Notes - all browsers will place here
 - open this URL and upload -https://trace.playwright.dev/
 
 74. What are Playwright Fixtures - Understand their use cases & Steps to implement
+75. Build UI Login Fixture & API call Fixture for a Test - Example
+76. Demo of 3 Custom Fixtures -Data driven, UI & API with Setup & TearDown unit code
 
 - Fixture is reuseable unit of code tosetup and tearDown that PW injects to test cases
 - Build-in Fixture {browser, page, context}
@@ -70,5 +72,6 @@ Notes - all browsers will place here
 - Step-3 import in acutal test
 - Data Driven functionality we can acchieve Using this Fixture also. (See examples)
 
-75. Build UI Login Fixture & API call Fixture for a Test - Example
-76. Demo of 3 Custom Fixtures -Data driven, UI & API with Setup & TearDown unit code
+82. Read write Excel file and Json
+
+- npm install xlsx
