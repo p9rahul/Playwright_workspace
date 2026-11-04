@@ -28,6 +28,25 @@ Notes - all browsers will place here
 - Run only only one browser
   - npx playwright test 02LocatorSmart.spec.ts --debug --project=chromium
 
+- IQ- How can you run test case on different config file
+  $npx playwright test 02LocatorSmart.spec.ts --config playwright.config_1.ts
+  - Benefits examples-
+  - Suppose you want to execute particular project with some setting
+  - Project-1 on headless/firefox and project-2 on chrome
+  - Run on QA /UAT-1/ UAT-2
+
+- IQ - How to run test case on iphone 18 / Andriod /
+  - do setting on config file
+  - check browserName : webkit
+    ...devices['iphone 18']
+
+- Handle SSL certification?
+  - ignoreHTTPSErrors:true
+    -Set permission like location permissions:['geolocation'],
+
+- IQ- How to record video for failed test/1st retry?
+- video: 'on-first-retry/retain-on-failure',
+
 - Add screenshot in config.ts file
   browserName: 'chromium',
   headless: false,
@@ -75,3 +94,46 @@ Notes - all browsers will place here
 82. Read write Excel file and Json
 
 - npm install xlsx
+
+88- Page Object Pattern
+
+- Create a Page object folder
+- Page Object Manager class -
+  - Page Object Manager (POM) class acts as a "single registry or factory" that instantiates
+    and manages all your Page Object instance
+
+# How to read Json file?
+
+- Create a TestData.json file in testData folder
+- import that file and covert [Json -> string -> Js Object]
+- So parsing issue will not come if any UTF encoding data is there in file
+- example codes-
+- const dataSet = JSON.parse(JSON.stringify(require("../testData/JsonTestData.json"))); //not working
+- import dataSet from "../testData/JsonTestData.json"; //Working for me
+
+# How to parametrize Json test data file?
+
+- Check test_ClientAppPO.spec.ts file, this will run multiple time
+  for (const data of dataSet)
+  test(`Execute test for multiple set of data ${data.productName}`, async () => {
+
+        console.log(data.email);
+        console.log(data.password);
+        console.log(data.productName);
+
+  })
+
+94. How to pass test data as fixture by extend test annotation behaviour
+
+- "Not much use ful"
+- Create a .ts File
+- create a custom test and extend it from {base} fixture
+- export it - check this file -> test-base-Fixture.ts // test data will be here
+- import it and call from test file -test_testBaseFixture.spec.ts
+
+# AI with Playwright
+
+- MCP git - all tools are avaliable
+- write simple english and LLM will execute using tools
+- https://github.com/microsoft/playwright-mcp
+- Configuration -

@@ -1,5 +1,5 @@
 import { expect, request, test } from "@playwright/test";
-import { customeTest } from "./Utils/Fixture1";
+import { customeTest } from "../../Utils/CustomFixture1";
 
 customeTest('Fixture Demo 1', async (
     {

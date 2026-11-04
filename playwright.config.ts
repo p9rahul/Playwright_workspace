@@ -36,6 +36,10 @@ export default defineConfig({
         headless: false,
         screenshot: 'on',
         trace: 'on', //retain-on-failure, 'on-first-retry'
+        // ignoreHTTPSErrors: true,
+        // permissions:['geolocation'],
+        // video: 'retain-on-failure',
+
     },
 
     //Rahul for Assertion -> Global timeouts

@@ -1,6 +1,6 @@
 import { Browser, expect, request, test } from "@playwright/test";
 import { chromium } from "@playwright/test";
-import { ApiUtils } from "../02RahulSe/Utils/ApiUtils";
+import { ApiUtils } from "../../Utils/ApiUtils";
 
 
 const loginPayload = { userEmail: "p9rahul@zohomail.in", userPassword: "Rahul@123" };
