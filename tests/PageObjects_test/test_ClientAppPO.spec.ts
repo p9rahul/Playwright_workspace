@@ -48,19 +48,19 @@ test('Validate this test using page object pattern', async ({ page }) => {
 
 })
 
-test('Read data from Json file', async () => {
+// test('Read data from Json file', async () => {
 
-    console.log(dataSet[0].email);
-    console.log(dataSet[0].password);
-    console.log(dataSet[0].productName);
-})
+//     console.log(dataSet[0].email);
+//     console.log(dataSet[0].password);
+//     console.log(dataSet[0].productName);
+// })
 
-for (const data of dataSet)
-    test(`Execute test for multiple set of data ${data.productName}`, async () => {
+// for (const data of dataSet)
+//     test(`Execute test for multiple set of data ${data.productName}`, async () => {
 
-        console.log(data.email);
-        console.log(data.password);
-        console.log(data.productName);
-    })
+//         console.log(data.email);
+//         console.log(data.password);
+//         console.log(data.productName);
+//     })
 
 

@@ -47,6 +47,8 @@ Notes - all browsers will place here
 - IQ- How to record video for failed test/1st retry?
 - video: 'on-first-retry/retain-on-failure',
 
+- Check reort directly Refrash each time- http://localhost:9323/
+
 - Add screenshot in config.ts file
   browserName: 'chromium',
   headless: false,
@@ -150,3 +152,12 @@ There are 2 library
 - write simple english and LLM will execute using tools
 - https://github.com/microsoft/playwright-mcp
 - Configuration -
+
+# Test retry , Serial & Parallel Execution & Tagging Test
+
+- Retry -
+
+* Go to config file
+* retries:2, in -> defineConfig
+
+- Report - Test case will execute 3 times -![alt text](image.png)
