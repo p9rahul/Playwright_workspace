@@ -353,3 +353,144 @@ Run the following commands in the terminal:
 - Makes test execution easier for team members.
 
 ````
+
+# Smart Playwright test : 3 Ways to skip repeated setUp
+
+1.  network Storage state - Save auth token/Session to a Json file , reuse across test run
+2.  Script Injection - Call a login API , inject token into the browser via addInitScript
+3.  Custom Fixture -
+
+# Playwright Timeouts — Recap Notes
+
+# Playwright Timeout Configuration
+
+## 1. Assertion Timeout (`expect`)
+
+Example:
+
+```
+await expect(page.getByText('Success!')).toBeVisible();
+```
+
+| Level                                        | How to Set                           | Code                                                                                                     |
+| -------------------------------------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| Global (applies to all tests)                | `playwright.config.ts`               | `expect: { timeout: 10000 }`                                                                             |
+| Test (applies to all assertions in one test) | `expect.configure()` inside the test | `const slowExpect = expect.configure({ timeout: 10000 });`<br>`await slowExpect(locator).toBeVisible();` |
+| Step (applies to one assertion)              | Pass timeout directly                | `await expect(page.getByText('Success!')).toBeVisible({ timeout: 10000 });`                              |
+
+Global Configuration (`playwright.config.ts`):
+
+```
+export default defineConfig({
+  expect: {
+    timeout: 10000
+  }
+});
+```
+
+Test-Level Configuration:
+
+```
+const slowExpect = expect.configure({ timeout: 10000 });
+await slowExpect(locator).toBeVisible();
+```
+
+Step-Level Configuration:
+
+```
+await expect(page.getByText('Success!'))
+  .toBeVisible({ timeout: 10000 });
+```
+
+> Note: Default = 5 seconds. Unrelated to test timeout — it's a separate clock.
+
+## 2. Action Timeout (click, fill, waitFor, etc.)
+
+Example:
+
+```
+await page.getByText('Get Started').click();
+```
+
+| Level                                            | How to Set                 | Code                                                             |
+| ------------------------------------------------ | -------------------------- | ---------------------------------------------------------------- |
+| Global (applies to all actions across the suite) | `playwright.config.ts`     | `use: { actionTimeout: 10000 }`                                  |
+| Test (applies to all actions in one test)        | `page.setDefaultTimeout()` | `page.setDefaultTimeout(10000);`                                 |
+| Step (applies to one action)                     | Pass timeout directly      | `await page.getByText('Get Started').click({ timeout: 10000 });` |
+
+Global Configuration (`playwright.config.ts`):
+
+```
+export default defineConfig({
+  use: {
+    actionTimeout: 10000
+  }
+});
+```
+
+Test-Level Configuration:
+
+```
+page.setDefaultTimeout(10000);
+await page.getByText('Get Started').click();
+```
+
+Step-Level Configuration:
+
+```
+await page.getByText('Get Started')
+  .click({ timeout: 10000 });
+```
+
+> Notes:
+>
+> - Default = 0 (no built-in limit — inherits whatever's left of the test's 30s).
+> - `page.setDefaultTimeout()` affects actions only, NOT assertions.
+
+## 3. Test Timeout (Entire Test Function)
+
+Example: A test with multiple steps: `goto → click → fill → click → assert`.
+
+| Level                                       | How to Set                          | Code                                                                          |
+| ------------------------------------------- | ----------------------------------- | ----------------------------------------------------------------------------- |
+| Global (applies to every test in the suite) | `playwright.config.ts`              | `timeout: 60000`                                                              |
+| Test (applies to one test)                  | `test.setTimeout()` inside the test | `test.setTimeout(60000);`                                                     |
+| Step                                        | Not applicable                      | Test timeout has no per-line override; it is the ceiling for the entire test. |
+
+Global Configuration (`playwright.config.ts`):
+
+```
+export default defineConfig({
+  timeout: 60000
+});
+```
+
+Test-Level Configuration:
+
+```
+test('checkout flow', async ({ page }) => {
+  test.setTimeout(60000);
+
+  // ...
+});
+```
+
+> Notes:
+>
+> - Default = 30 seconds.
+> - This is one single cumulative clock — it does NOT reset between steps.
+> - Bonus shortcut: `test.slow()` triples the default (30s → 90s) without typing a number.
+
+## Golden Rule to Remember
+
+An explicit timeout (step or config) only shortens or lengthens that specific operation's own wait. It can never push execution beyond the overall Test Timeout.
+
+If the Test Timeout hits first, everything stops — regardless of what any action/assertion timeout was set to.
+
+## Quick Memory Hook for Students
+
+| Timeout Type | Meaning                             | Default                       |
+| ------------ | ----------------------------------- | ----------------------------- |
+| Assertions   | "Is it there?"                      | 5 seconds                     |
+| Actions      | "Do it now"                         | 0 (no built-in limit)         |
+| Test         | "How long can the whole thing run?" | 30 seconds (ultimate ceiling) |
