@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { POManager } from "../pageObjects/POManager";
 import dataSet from "../testData/JsonTestData.json";// [Json -> string -> Js Object]
 
-test('Validate this test using page object pattern', async ({ page }) => {
+test('@Web Validate this test using page object pattern', async ({ page }) => {
 
     // Not required - Reading data from Json file
     // const email = "p9rahul@zohomail.in";
@@ -48,19 +48,20 @@ test('Validate this test using page object pattern', async ({ page }) => {
 
 })
 
-// test('Read data from Json file', async () => {
+test.describe.configure({ mode: 'serial' })
+test('Read data from Json file', async () => {
 
-//     console.log(dataSet[0].email);
-//     console.log(dataSet[0].password);
-//     console.log(dataSet[0].productName);
-// })
+    console.log(dataSet[0].email);
+    console.log(dataSet[0].password);
+    console.log(dataSet[0].productName);
+})
 
-// for (const data of dataSet)
-//     test(`Execute test for multiple set of data ${data.productName}`, async () => {
+for (const data of dataSet)
+    test(`Execute test for multiple set of data ${data.productName}`, async () => {
 
-//         console.log(data.email);
-//         console.log(data.password);
-//         console.log(data.productName);
-//     })
+        console.log(data.email);
+        console.log(data.password);
+        console.log(data.productName);
+    })
 
 

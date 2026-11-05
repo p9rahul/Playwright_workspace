@@ -153,11 +153,279 @@ There are 2 library
 - https://github.com/microsoft/playwright-mcp
 - Configuration -
 
-# Test retry , Serial & Parallel Execution & Tagging Test
+# Playwright Test Execution: Retry, Parallel, Serial & Tagging
 
-- Retry -
+This document explains how to configure and execute Playwright test cases using different execution strategies, including **Retry, Parallel Execution, Serial Execution, and Test Tagging**.
 
-* Go to config file
-* retries:2, in -> defineConfig
+## 1. Retry Mechanism
 
-- Report - Test case will execute 3 times -![alt text](image.png)
+### What is Retry?
+
+Retry is used to automatically re-execute failed test cases.
+
+For example, if a test case fails due to a temporary issue such as network latency or application loading, Playwright can retry the test automatically.
+
+### Configuration
+
+1. Open the `playwright.config.ts` file.
+2. Add the `retries` property inside the configuration.
+
+```typescript
+import { defineConfig } from "@playwright/test";
+
+export default defineConfig({
+  retries: 2,
+});
+```
+
+**Explanation:**
+
+- `retries: 0` – No retry.
+- `retries: 1` – Retry once if the test fails.
+- `retries: 2` – Retry twice if the test fails.
+
+**Example:** If a test case fails during its first execution and `retries: 2` is configured, Playwright will execute it up to 3 times (1 initial execution + 2 retries).
+
+### Execute Test Using Terminal
+
+```bash
+npx playwright test "tests/PageObjects_test/test_ClientAppPO.spec.ts" --headed
+```
+
+### Retry Execution Flow
+
+```text
+Test Case Execution
+        |
+        v
+   Test Passed?
+     /     \
+   Yes      No
+   |         |
+  End    Retry 1
+             |
+         Test Passed?
+          /      \
+        Yes       No
+        |          |
+       End      Retry 2
+                    |
+                Final Result
+```
+
+### Retry Report
+
+The Playwright HTML report displays the retry attempts for failed test cases.
+
+![Retry Report](Retry_Report_image.png)
+
+---
+
+## 2. Parallel Execution
+
+### What is Parallel Execution?
+
+Parallel execution allows Playwright to execute multiple test files simultaneously using multiple workers.
+
+- By default, Playwright runs test files in parallel.
+- Playwright uses up to 50% of available CPU cores as workers by default.
+- You can manually configure the number of workers in the configuration file.
+
+### Configure Workers
+
+Open `playwright.config.ts` and configure:
+
+```typescript
+import { defineConfig } from "@playwright/test";
+
+export default defineConfig({
+  workers: 5,
+});
+```
+
+**Example:**
+
+If you have 10 test files and configure 5 workers, Playwright can execute up to 5 test files simultaneously.
+
+### Run Tests in Parallel (Default Behaviour)
+
+```bash
+npx playwright test
+```
+
+### Configure Single Worker
+
+If you configure `workers: 1`, Playwright will execute test files one after another instead of running them in parallel.
+
+```typescript
+export default defineConfig({
+  workers: 1,
+});
+```
+
+**Important:**
+
+- By default, different test files can run in parallel.
+- Test cases within the same test file run sequentially by default.
+- To execute test cases within the same file in parallel, use `mode: 'parallel'`.
+
+---
+
+## 3. Execute Test Cases Within a Single File in Parallel
+
+By default, test cases inside a single test file execute sequentially.
+
+If you want to execute test cases within the same file in parallel, use:
+
+```typescript
+import { test, expect } from "@playwright/test";
+
+test.describe.configure({ mode: "parallel" });
+test("Test Case 1 - Login", async ({ page }) => {
+  // Test implementation
+});
+
+test("Test Case 2 - Dashboard", async ({ page }) => {
+  // Test implementation
+});
+
+test("Test Case 3 - Logout", async ({ page }) => {
+  // Test implementation
+});
+```
+
+**Explanation:**
+
+- `mode: 'parallel'` enables parallel execution within the test group.
+- Each test runs independently.
+- Tests should not depend on the execution order of other tests.
+
+**Note:** Parallel tests should use independent test data and isolated resources to avoid conflicts.
+
+---
+
+## 4. Serial Execution
+
+### What is Serial Execution?
+
+Serial execution is useful when one test case depends on the successful execution of another test case.
+
+For example:
+
+- Test Case 1: Create a new user.
+- Test Case 2: Update the user details.
+- Test Case 3: Delete the user.
+
+In this scenario, the test cases depend on each other.
+
+### Configure Serial Execution
+
+Use `test.describe.configure({ mode: 'serial' })`.
+
+```typescript
+import { test, expect } from "@playwright/test";
+
+test.describe.configure({ mode: "serial" });
+test("Test Case 1 - Create User", async ({ page }) => {
+  // Create user
+});
+
+test("Test Case 2 - Update User", async ({ page }) => {
+  // Update user
+});
+
+test("Test Case 3 - Delete User", async ({ page }) => {
+  // Delete user
+});
+```
+
+**Explanation:**
+
+- Test cases execute one after another.
+- If a test fails, subsequent tests in the serial group are skipped.
+- Serial execution also affects retry behaviour: Playwright retries the serial group together.
+
+**Important:** Serial execution should be used only when test cases genuinely depend on each other. Whenever possible, keep test cases independent.
+
+---
+
+## 5. Test Tagging
+
+### What is Test Tagging?
+
+Test tagging helps categorize test cases based on their purpose.
+
+For example, in an automation framework, we may have:
+
+| Tag           | Purpose                                     |
+| ------------- | ------------------------------------------- |
+| `@Smoke`      | Executes critical functionality tests       |
+| `@Regression` | Executes the complete regression test suite |
+| `@Sanity`     | Executes basic functionality checks         |
+| `@Web`        | Identifies web application tests            |
+| `@API`        | Identifies API tests                        |
+
+### Define Tags at Test Level
+
+You can define tags directly in the test case title.
+
+**Example 1: Web Test**
+
+```typescript
+test("@Web Validate Client Application", async ({ page }) => {
+  // Test implementation
+});
+```
+
+**Example 2: Smoke Test**
+
+```typescript
+test("@Smoke Validate Login Functionality", async ({ page }) => {
+  // Test implementation
+});
+```
+
+**Example 3: Regression Test**
+
+```typescript
+test("@Regression Validate User Registration", async ({ page }) => {
+  // Test implementation
+});
+```
+
+## 6. Quick Reference – Playwright Commands
+
+| Purpose                  | Command                                           |
+| ------------------------ | ------------------------------------------------- |
+| Run all tests            | `npx playwright test`                             |
+| Run tests in headed mode | `npx playwright test --headed`                    |
+| Run a specific test file | `npx playwright test tests/example.spec.ts`       |
+| Run tests with 2 workers | `npx playwright test --workers=2`                 |
+| Run tests with 1 worker  | `npx playwright test --workers=1`                 |
+| Run Smoke tests          | `npx playwright test --grep "@Smoke"`             |
+| Run Regression tests     | `npx playwright test --grep "@Regression"`        |
+| Run Sanity tests         | `npx playwright test --grep "@Sanity"`            |
+| Exclude Regression tests | `npx playwright test --grep-invert "@Regression"` |
+| Open HTML report         | `npx playwright show-report`                      |
+
+---
+
+## 7. Summary
+
+| Feature       | Configuration           | Purpose                                     |
+| ------------- | ----------------------- | ------------------------------------------- |
+| Retry         | `retries: 2`            | Re-executes failed tests up to 2 times      |
+| Parallel      | `workers: 5`            | Executes multiple test files simultaneously |
+| Single Worker | `workers: 1`            | Executes test files one after another       |
+| Parallel Mode | `mode: 'parallel'`      | Executes tests within a file in parallel    |
+| Serial Mode   | `mode: 'serial'`        | Executes dependent tests sequentially       |
+| Tagging       | `@Smoke`, `@Regression` | Executes selected categories of tests       |
+
+**Best Practices:**
+
+1. Use Retry to handle temporary test failures.
+2. Use Parallel Execution to reduce overall execution time.
+3. Use Serial Execution only for dependent test scenarios.
+4. Prefer independent test cases wherever possible.
+5. Use Tags to organize and execute different testing suites.
+6. Use HTML reports to analyze test execution results.

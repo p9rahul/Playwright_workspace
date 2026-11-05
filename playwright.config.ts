@@ -14,14 +14,19 @@ export default defineConfig({
     testDir: './tests',
     /* Run tests in files in parallel */
     fullyParallel: true,
+
     //Rahul - Retry
-    retries: 2,
-    /* Fail the build on CI if you accidentally left test.only in the source code. */
-    forbidOnly: !!process.env.CI,
+    // retries: 2,
     // /* Retry on CI only */
     // retries: process.env.CI ? 2 : 0,
+
+    /* Fail the build on CI if you accidentally left test.only in the source code. */
+    forbidOnly: !!process.env.CI,
+
     /* Opt out of parallel tests on CI. */
-    workers: process.env.CI ? 1 : undefined,
+    // workers: process.env.CI ? 1 : undefined,
+    // ?Rahul
+    workers: 1,
     /* Reporter to use. See https://playwright.dev/docs/test-reporters */
     reporter: 'html',
 
@@ -38,6 +43,8 @@ export default defineConfig({
         headless: false,
         screenshot: 'on',
         trace: 'on', //retain-on-failure, 'on-first-retry'
+
+        // Rahul - SSL certification 
         // ignoreHTTPSErrors: true,
         // permissions:['geolocation'],
         // video: 'retain-on-failure',
