@@ -15,7 +15,7 @@ Output message - You have No Orders to show at this time. Please Visit Back Us
 */
 
 import { expect, request, test } from "@playwright/test";
-import { ApiUtils } from "../02RahulSe/Utils/ApiUtils";
+import { ApiUtils } from "../../Utils/ApiUtils";
 
 const loginPayload = { userEmail: "p9rahul@zohomail.in", userPassword: "Rahul@123" };
 const createOrderpayload = { orders: [{ country: "India", productOrderedId: "6960eae1c941646b7a8b3ed3" }] };

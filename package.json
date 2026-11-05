@@ -4,7 +4,10 @@
   "description": "Basics and AI capability",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/03RahulAPI/02Web_Api_utils.spec.ts --headed"
+    "test": "npx playwright test tests/03RahulAPI/02Web_Api_utils.spec.ts --headed",
+    "regression":"npx playwright test",
+    "webtest": "npx playwright test --grep @web",
+    "apitest":"npx playwright test --grep @Api"
   },
   "repository": {
     "type": "git",
@@ -18,7 +21,9 @@
   "homepage": "https://github.com/p9rahul/Playwright_workspace#readme",
   "devDependencies": {
     "@playwright/test": "^1.64.1",
-    "@types/node": "^26.6.6"
+    "@types/node": "^26.6.6",
+    "allure-commandline": "^2.46.1",
+    "allure-playwright": "^3.14.0"
   },
   "dependencies": {
     "exceljs": "^4.4.0",
