@@ -1,7 +1,7 @@
 import { Browser, test, BrowserContext } from '@playwright/test';
 import { chromium } from 'playwright';
 
-test("Open Browser in Normal Mode", async () => {
+test("@Smoke Open Browser in Normal Mode", async () => {
 
     /*1st argument is user data directory path, 2nd argument is browser type like this
         - const browser: Browser = await chromium.launchPersistentContext("C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User Data", { headless: false });

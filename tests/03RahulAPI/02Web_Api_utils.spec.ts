@@ -17,7 +17,7 @@ test.beforeAll(async () => {
 })
 
 //To baypass login page using API->Result faster
-test("Validate login with API", async ({ page }) => {
+test("@Api Validate login with API", async ({ page }) => {
     console.log("Login Token :", response.token);
     console.log("Order ID =", response.orderID);
 

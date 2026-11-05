@@ -1,3 +1,26 @@
+# NPM vs NPX
+
+npm = Install and Manage
+
+Download and manage packages in your project.
+
+npm install playwright
+
+| Feature             | npm                         | npx                       |
+| ------------------- | --------------------------- | ------------------------- |
+| Full form           | Node Package Manager        | Node Package Execute      |
+| Main purpose        | Install and manage packages | Execute packages          |
+| Install packages    | Yes                         | Not its primary purpose   |
+| Run commands        | Through scripts             | Directly execute packages |
+| Global installation | Supported                   | Not required              |
+| Example             | `npm install playwright`    | `npx playwright test`     |
+
+npx = Execute
+
+Run a package command.
+
+npx playwright test
+
 # Playwright_workspace
 
 Basics and AI capability
@@ -300,11 +323,14 @@ Open `package.json` and define the following scripts inside the `scripts` sectio
 
 ```json
 "scripts": {
-  "test": "npx playwright test tests/03RahulAPI/02Web_Api_utils.spec.ts --headed",
-  "regression": "npx playwright test",
-  "webtest": "npx playwright test --grep @web",
-  "apitest": "npx playwright test --grep @Api"
-}
+    "test": "npx playwright test tests/03RahulAPI/02Web_Api_utils.spec.ts --headed",
+    "regression":"npx playwright test",
+    "webtest": "npx playwright test --grep "@web" --reporter=line,allure-playwright",
+    "apitest":"npx playwright test --grep @Api",
+    "allure:generate": "npx allure generate ./allure-results --clean -o ./allure-report",
+    "allure:open": "npx allure open ./allure-report",
+    "allure:report": "npm run allure:generate && npm run allure:open"
+  }
 ```
 
 ### 3. Execute Tests Using NPM Scripts
@@ -317,7 +343,7 @@ Run the following commands in the terminal:
 | Regression | `npm run regression` | Executes all test cases |
 | Web Test | `npm run webtest` | Executes tests tagged with `@web` |
 | API Test | `npm run apitest` | Executes tests tagged with `@Api` |
-
+| Allure Report| `npm run allure:report`| Execute both cmds and open Report|
 ```
 
 **Benefits:**

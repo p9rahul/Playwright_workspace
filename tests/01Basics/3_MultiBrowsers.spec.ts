@@ -1,7 +1,7 @@
 import { Browser, test, BrowserContext } from '@playwright/test';
 import { chromium, firefox, webkit } from 'playwright';
 
-test("Multi Browser Test", async () => {
+test("@Smoke Multi Browser Test", async () => {
     const browser: Browser = await chromium.launch({ headless: false });
     const bContext1: BrowserContext = await browser.newContext();
     const page1 = await bContext1.newPage();

@@ -1,7 +1,7 @@
 import { Browser, Page, test } from "@playwright/test";
 import { chromium } from "playwright";
 
-test("Locator Test", async () => {
+test("@Smoke Locator Test", async () => {
 
     const browser = await chromium.launch({ headless: false });
     // const browserContext = await browser.newContext();

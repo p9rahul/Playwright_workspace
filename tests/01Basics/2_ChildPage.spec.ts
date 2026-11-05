@@ -1,7 +1,7 @@
 import { Browser, expect, test } from "@playwright/test";
 import { chromium } from "playwright";
 
-test("Child Page Test", async () => {
+test("@Smoke Child Page Test", async () => {
     const browser: Browser = await chromium.launch({ headless: false });
     const context = await browser.newContext();
 

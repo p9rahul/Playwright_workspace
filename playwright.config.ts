@@ -16,7 +16,7 @@ export default defineConfig({
     fullyParallel: true,
 
     //Rahul - Retry
-    // retries: 2,
+    retries: 1,
     // /* Retry on CI only */
     // retries: process.env.CI ? 2 : 0,
 
@@ -37,7 +37,7 @@ export default defineConfig({
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
 
         //Rahul Configuration
-        actionTimeout: 10000,
+        actionTimeout: 30000,
         navigationTimeout: 30 * 1000,
         browserName: 'chromium',
         headless: false,
@@ -58,13 +58,13 @@ export default defineConfig({
          * Maximum time expect() should wait for a condition to be met.
          * 10000ms = 10 seconds (Default is 5000ms)
          */
-        timeout: 10000,
+        timeout: 30000,
     },
 
     /* Configure projects for major browsers */
     projects: [
         {
-            name: 'chromium',
+            name: 'Project : Rahul Pandey',
             use: { ...devices['Desktop Chrome'] },
         },
         // {

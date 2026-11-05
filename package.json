@@ -4,10 +4,15 @@
   "description": "Basics and AI capability",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/03RahulAPI/02Web_Api_utils.spec.ts --headed",
-    "regression":"npx playwright test",
-    "webtest": "npx playwright test --grep @web",
-    "apitest":"npx playwright test --grep @Api"
+    "clean:allure": "rimraf allure-results allure-report",
+    "allure:generate": "npx allure generate ./allure-results --clean -o ./allure-report",
+    "allure:open": "npx allure open ./allure-report",
+    "allure:report": "npm run allure:generate && npm run allure:open",
+    "samplerahul": "npm run clean:allure && npx playwright test tests/03RahulAPI/02Web_Api_utils.spec.ts --headed --reporter=line,allure-playwright",
+    "regression":"npm run clean:allure && npx playwright test --grep@Regression --reporter=line,allure-playwright",
+    "smoke":"npm run clean:allure && npx playwright test --grep @Smoke --reporter=line,allure-playwright",
+    "webtest": "npm run clean:allure &&  npx playwright test --grep @web --reporter=line,allure-playwright",
+    "apitest":"npm run clean:allure &&  npx playwright test --grep @Api --reporter=line,allure-playwright"
   },
   "repository": {
     "type": "git",
