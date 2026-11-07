@@ -19,10 +19,13 @@ class ApiUtils {
     }
 
     async createOrder(createOrderpayload: any) {
+
         let response: {
             orderID: any;
             token?: string
         } = { orderID: undefined, token: undefined };
+
+        // let response1 = { token: String, orderID: any };
 
         response.token = await this.getToken();
         const urlCreateorder = "https://rahulshettyacademy.com/api/ecom/order/create-order";

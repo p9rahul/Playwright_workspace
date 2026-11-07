@@ -1,8 +1,8 @@
-import { test as base } from "@playwright/test";
+import { test as baseTest } from "@playwright/test";
 
 
-//this is test data in side fixture. Now call it from test example"test_ClientAppPO.spec.ts"
-export const customTest = base.extend<{ testDataFixture: any }>({
+//this is test data in side fixture. Now call it from test example"04FixtureDemo1.spec.ts"
+export const customTest = baseTest.extend<{ testDataFixture: any }>({
     testDataFixture: async ({ }, use: any) => {
         await use({
             userName: "Rahul#gamil.com",

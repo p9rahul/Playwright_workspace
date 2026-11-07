@@ -21,7 +21,7 @@ Run a package command.
 
 npx playwright test
 
-# Playwright_workspace
+# Playwright_workspace RUN
 
 Basics and AI capability
 
@@ -33,7 +33,7 @@ npx playwright show-report
 Notes - all browsers will place here
 -C:\Users\pc\AppData\Local\ms-playwright
 
-#Run
+# Run Commands to execute -
 
 - Run Simple .ts file - $ node .\test1.ts
 
@@ -65,7 +65,7 @@ Notes - all browsers will place here
 
 - Handle SSL certification?
   - ignoreHTTPSErrors:true
-    -Set permission like location permissions:['geolocation'],
+  - Set permission like location permissions:['geolocation'],
 
 - IQ- How to record video for failed test/1st retry?
 - video: 'on-first-retry/retain-on-failure',
@@ -81,7 +81,7 @@ Notes - all browsers will place here
 
 - CSS selector
   - . for class ex- .test-clas
-  - # for id ex- #dom-id
+  - #for id ex- #dom-id
 
 # How to debug the API steps in script using Visual code debugging
 
