@@ -1,0 +1,17 @@
+{
+    "createUser": {
+        "name": "{{username}}",
+        "email": "{{email}}",
+        "password": "{{password}}",
+        "role": "{{role}}",
+        "company": {
+            "name": "{{companyName}}",
+            "location": "{{location}}"
+        }
+    },  
+    "updateUser": {
+        "userId": "{{userId}}",
+        "name": "{{updatedName}}",
+        "email": "{{updatedEmail}}"
+    }
+}

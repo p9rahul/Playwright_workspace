@@ -507,3 +507,22 @@ i stands for install like npm install
 - Create PDF pdf-lib
 - Modify existing PDF pdf-lib
 - Add text to PDF pdf-lib
+
+#Function method signature-
+'============================================================================
+' FunctionName : Recovery_Popup
+' Description : Function to handle any unexpected popup which is caught by a recovery scenario
+' Input Parameter : Object
+' Return Value : None
+' Date Created : 30/07/2008  
+'============================================================================
+
+# Json PlaceHodler logic-
+
+- Create a Json file template where code can be replaced at run time file location - testData->apiPayload_template.json
+  { "name": "{{username}}",
+  "email": "{{email}}",
+  "password": "{{password}}",}
+- Utils file location Utils -> jsonPlaceHolder.ts
+- Call from anywhere but as of now testData -> JsonData ->apiPayload.spec.ts
+- import and call function with dynamic test data
