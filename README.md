@@ -494,3 +494,16 @@ If the Test Timeout hits first, everything stops — regardless of what any acti
 | Assertions   | "Is it there?"                      | 5 seconds                     |
 | Actions      | "Do it now"                         | 0 (no built-in limit)         |
 | Test         | "How long can the whole thing run?" | 30 seconds (ultimate ceiling) |
+
+# Cucumber -
+
+# PDF Reader /Writer -
+
+$npm install pdf-lib
+$npm i --save-dev @types/node
+i stands for install like npm install
+
+- Features-
+- Create PDF pdf-lib
+- Modify existing PDF pdf-lib
+- Add text to PDF pdf-lib
