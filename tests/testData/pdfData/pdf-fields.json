@@ -1,0 +1,626 @@
+[
+  {
+    "name": "1 Policy number",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Nature of damge or loss",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Nature of damge or loss 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Nature of damge or loss 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Nature of damge or loss 3",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Nature of damge or loss 4",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Nature of damge or loss 5",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Premises postcode",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "2 Name of insured",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "2 Real estate agent",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "2 Postal address",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "2 Email address",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Address or premises",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Registered for GST?",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "Claim credit?",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "Less than 100%",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "ABN",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Percentage",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "OFFICE USE XS",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "OFFICE USE XS AD",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "OFFICE USE XS LE",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "OFFICE USE XS MP",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "OFFICE USE XS CAUSE",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "2 Postcode",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "2 Telephone no 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "2 Telephone no 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "1 Date",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Date of event",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Date of event 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Date of event 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Date of event 3",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Date of event 4",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Date of event 5",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "3 Tenant responsible",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "Other details 2",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "Tenancy 1",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "Tenancy 2",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "Tenancy 3",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "Tenancy 4",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "Tenancy 5",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "3 please provide details",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Other details 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Other details 2 insurer",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Other details 3 Station",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Other details 3 Police report",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Other details 4 Names of witnesses",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Other details 2 Policy no",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Other details 3 Date reported",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Tenancy 8 Bond",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Tenancy 8 Weekly",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Tenancy 6",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Tenancy 7",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Tenancy 8 date",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Tenancy 9",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "Tenancy 10",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "Tenancy 9 why not",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Tenancy 10 why not",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Rent default 1 date from",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Rent default 2 date to",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Rent default 3 total lost",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Rent default 4 less bond",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "general cleaning",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "general cleaning 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "general cleaning 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Advertising",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Advertising 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Advertising 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Re-letting fee",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Re-letting fee 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Re-letting fee 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Other",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Other 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Other 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Other 3",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "total expenses",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "net bond",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "claim total ",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "a",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "b",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "c",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "d",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "e",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "f",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "g",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "h",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "i",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "all other claims",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims 3",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims 4",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims 5",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims 6",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims 7",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims date",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims date 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims date 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims date 3",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims date 4",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims date 5",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims date 6",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims date 7",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims purchase",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims purchase 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims purchase 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims purchase 3",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims purchase 4",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims purchase 5",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims purchase 6",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims purchase 7",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims tax",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims tax 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims tax 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims tax 3",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims tax 4",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims tax 5",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims tax 6",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims tax 7",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims spare",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims spare 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims spare 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims spare 3",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims spare 4",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims spare 5",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims spare 6",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "all other claims spare 7",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "2 who caused the loss or damage",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "2 address witness",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "2 name",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "name 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "name 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "2 time",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "time 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "time 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "2 date",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "date 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "date 2",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "Check Box 2",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "Check Box 3",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "Check Box 4",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "3 Check Box",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "4 Check Box",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "4 provide details",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "provide details 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "4 value",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "value 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "4 value date",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "value date 1",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "5 Check Box",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "6 Check Box",
+    "type": "PDFCheckBox"
+  },
+  {
+    "name": "5 Text Field",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "6 Text Field",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "signature",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "signature date",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "name in full",
+    "type": "PDFTextField"
+  },
+  {
+    "name": "additional comments",
+    "type": "PDFTextField"
+  }
+]
